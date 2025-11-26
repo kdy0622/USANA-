@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, Mail, Globe } from 'lucide-react';
+import { Instagram, MessageCircle, Mail, Globe, Youtube } from 'lucide-react';
 import { PERSONAL_INFO } from '../../constants';
 
 const Footer: React.FC = () => {
@@ -23,6 +23,14 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-secondary transition-colors"
               >
                 <Instagram size={24} />
+              </a>
+              <a 
+                href={PERSONAL_INFO.YOUTUBE} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-secondary transition-colors"
+              >
+                <Youtube size={24} />
               </a>
               <a 
                 href={PERSONAL_INFO.KAKAO_OPENCHAT} 

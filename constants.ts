@@ -6,6 +6,7 @@ export const PERSONAL_INFO = {
   EMAIL: "1jjiyuong@naver.com",
   KAKAO_OPENCHAT: "https://open.kakao.com/o/sF9uaI3h",
   INSTAGRAM: "https://www.instagram.com/usana.jjiyuong/#",
+  YOUTUBE: "https://www.youtube.com/@Dream-On-tv",
   LITTLY: "https://litt.ly/usanastar",
   WEBSITE: "https://playing.usana.com",
   CATCHPHRASE: "건강과 재정적 자유를 디자인하다",
