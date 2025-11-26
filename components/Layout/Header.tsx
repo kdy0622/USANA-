@@ -24,20 +24,32 @@ const Header: React.FC = () => {
     { name: '문의하기', path: '/contact' },
   ];
 
+  // Logic to determine header appearance
+  const isHome = location.pathname === '/';
+  // Show solid header if scrolled or if mobile menu is open
+  const showSolidHeader = isScrolled || isMobileMenuOpen;
+  
+  // Use white text only if on Home page AND header is transparent (not scrolled/menu closed)
+  const isWhiteText = isHome && !showSolidHeader;
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+        showSolidHeader ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="text-2xl font-bold text-primary tracking-tighter">USANA</div>
-            <div className="hidden sm:block text-sm text-gray-600 border-l border-gray-300 pl-2">
+            <div className={`text-2xl font-bold tracking-tighter transition-colors ${isWhiteText ? 'text-white' : 'text-primary'}`}>
+              USANA
+            </div>
+            <div className={`hidden sm:block text-sm border-l pl-2 transition-colors ${
+              isWhiteText ? 'text-gray-200 border-gray-400' : 'text-gray-600 border-gray-300'
+            }`}>
               {PERSONAL_INFO.TITLE}
             </div>
           </Link>
@@ -50,8 +62,8 @@ const Header: React.FC = () => {
                 to={link.path}
                 className={`text-base font-medium transition-colors ${
                   isActive(link.path) 
-                    ? 'text-primary font-bold' 
-                    : isScrolled ? 'text-gray-700 hover:text-primary' : 'text-gray-800 hover:text-primary'
+                    ? (isWhiteText ? 'text-secondary font-bold' : 'text-primary font-bold')
+                    : (isWhiteText ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-primary')
                 }`}
               >
                 {link.name}
@@ -66,7 +78,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-gray-600"
+            className={`md:hidden p-2 transition-colors ${isWhiteText ? 'text-white' : 'text-gray-600'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
