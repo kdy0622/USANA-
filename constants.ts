@@ -5,7 +5,7 @@ export const PERSONAL_INFO = {
   PHONE: "010-2750-3706",
   EMAIL: "1jjiyuong@naver.com",
   KAKAO_OPENCHAT: "https://open.kakao.com/o/sF9uaI3h",
-  INSTAGRAM: "https://www.instagram.com/1jjiyuong",
+  INSTAGRAM: "https://www.instagram.com/usana.jjiyuong/#",
   LITTLY: "https://litt.ly/usanastar",
   WEBSITE: "https://playing.usana.com",
   CATCHPHRASE: "건강과 재정적 자유를 디자인하다",

@@ -202,6 +202,11 @@ const ProductPage: React.FC = () => {
                       </a>
                     )}
                   </div>
+                  {activeTab === 'nutrition' && (
+                    <p className="text-sm text-gray-600 mt-3 font-medium">
+                      (회원 혜택 : 첫구매 10% 쿠폰, 두번째 주문부터 10%DC)
+                    </p>
+                  )}
                 </motion.div>
               </div>
             </div>
